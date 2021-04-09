@@ -2,7 +2,7 @@
 #include <stdint.h>
 #include <stdexcept>
 #include <iostream>
-enum  stack
+enum  class stack
 {
  head,
  tail,
@@ -17,28 +17,27 @@ public:
  double_stack() :ourdblstack(7)
  {
     heads = 0;
-    tails = ourdblstack.capacity();
+    tails = ourdblstack.size();
  }
   void show()
  {
   for (uint32_t i = 0; i < ourdblstack.size(); i++)
   {
-   std::cout<< ourdblstack[i] <<std::endl;
+      std::cout<< ourdblstack[i] <<std::endl;
   }
  }
- bool check(stack hort)
+ void check(stack hort)
 {
     if(heads==0)
       {
              throw std::invalid_argument{
                     "U have nothing to pop from head" };
       }
-    if(tails==ourdblstack.capacity())
+    if(tails==ourdblstack.size())
       {
              throw std::invalid_argument{
                     "U have nothing to pop from tail" };
       }
-      return 1;
 }
 u_int32_t sizeofheads()
 {
@@ -46,7 +45,7 @@ u_int32_t sizeofheads()
 }
 u_int32_t sizeoftails()
 {
-    return ourdblstack.capacity()-tails;
+    return ourdblstack.size()-tails;
 }
  bool pushelement(stack hort, T element)
  {
@@ -55,42 +54,32 @@ u_int32_t sizeoftails()
          throw std::invalid_argument{
    "You have reached end of vector" };
      }
-  if (hort == head)
+  if (hort == stack::head)
   {
    ourdblstack.at(heads) = element;
    heads++;
    return 1;
   }
-  if (hort == tail)
+  if (hort == stack::tail)
   {
    ourdblstack.at(--tails) = element;
    return 1;
   }
-  else
-  {
-   throw std::invalid_argument{
-   "Invalid enum member, choose head or tails" };
-  }
+ 
  }
- bool pop(stack hort)
+ void pop(stack hort)
  {
-     if (hort == head)
+     if (hort == stack::head)
   {
-      check(head);
+      check(stack::head);
    ourdblstack.at(--heads) = 0;
-   return 1;
   }
-  if (hort == tail)
+  if (hort == stack::tail)
   {
-       check(tail);
+       check(stack::tail);
     ourdblstack.at(tails) = 0;
     tails++;
-    return 1;
   }
-  else
-   {
-   throw std::invalid_argument{
-   "Invalid enum member, choose head or tails" };
-  }
+  
  }
 };
