@@ -2,7 +2,7 @@
 #include <stdint.h>
 #include <stdexcept>
 #include <iostream>
-enum  class stack//
+enum  class stack
 {
  head,
  tail,

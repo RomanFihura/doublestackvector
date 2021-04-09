@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/test-doublestackvector.dir/learningproject.cpp.o CMakeFiles/test-doublestackvector.dir/test_learningproject.cpp.o  -o test-doublestackvector  -lgtest -lgtest_main -lgmock -lpthread 
