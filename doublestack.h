@@ -80,6 +80,6 @@ u_int32_t sizeoftails()
     ourdblstack.at(tails) = 0;
     tails++;
   }
-  
+  //
  }
 };
