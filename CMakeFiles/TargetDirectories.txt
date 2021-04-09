@@ -1,5 +1,0 @@
-/home/romanfihura/Documents/doublestackvector/CMakeFiles/rebuild_cache.dir
-/home/romanfihura/Documents/doublestackvector/CMakeFiles/edit_cache.dir
-/home/romanfihura/Documents/doublestackvector/CMakeFiles/test.dir
-/home/romanfihura/Documents/doublestackvector/CMakeFiles/test-doublestackvector.dir
-/home/romanfihura/Documents/doublestackvector/CMakeFiles/doublestackvector.dir
