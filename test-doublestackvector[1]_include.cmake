@@ -1,0 +1,5 @@
+if(EXISTS "/home/romanfihura/Documents/doublestackvector/test-doublestackvector[1]_tests.cmake")
+  include("/home/romanfihura/Documents/doublestackvector/test-doublestackvector[1]_tests.cmake")
+else()
+  add_test(test-doublestackvector_NOT_BUILT test-doublestackvector_NOT_BUILT)
+endif()

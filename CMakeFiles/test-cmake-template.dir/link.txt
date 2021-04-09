@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/test-cmake-template.dir/learningproject.cpp.o CMakeFiles/test-cmake-template.dir/test_learningproject.cpp.o  -o test-cmake-template  -lgtest -lgtest_main -lgmock -lpthread 

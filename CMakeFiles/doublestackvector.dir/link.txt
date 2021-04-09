@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/doublestackvector.dir/learningproject.cpp.o CMakeFiles/doublestackvector.dir/main.cpp.o  -o doublestackvector 
