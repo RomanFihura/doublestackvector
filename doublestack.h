@@ -12,9 +12,9 @@ class double_stack
 {
 public:
     double_stack()
-        : D_STACK_(1000)
-        , heads(0)
-        , tails(D_STACK_.size())
+        : m_d_stack_(1000)
+        , m_head(0)
+        , m_tail(m_d_stack_.size())
     {
     }
     void check(stack d_stack)
@@ -22,10 +22,15 @@ public:
         switch (d_stack)
         {
         case head:
-            throw std::invalid_argument{"U have nothing to pop from head"};
+            if (0 == m_head)
+                throw std::out_of_range{"U have nothing to pop from head"};
             return;
         case tail:
-            throw std::invalid_argument{"U have nothing to pop from tail"};
+            if (m_d_stack_.size() == m_tail)
+                throw std::out_of_range{"U have nothing to pop from tail"};
+            return;
+        default:
+            return;
         }
     }
     uint32_t size(stack d_stack)
@@ -33,49 +38,51 @@ public:
         switch (d_stack)
         {
         case head:
-            return heads;
+            return m_head;
         case tail:
-            return D_STACK_.size() - tails;
+            return m_d_stack_.size() - m_tail;
         default:
             throw std::invalid_argument{"Invalid name of tail or head"};
         }
     }
-    bool push(stack d_stack, T element)
+    T push(stack d_stack, T element)
     {
-        if (heads == tails)
+        if (m_head == m_tail)
         {
-            throw std::invalid_argument{"You have reached end of vector"};
+            throw std::out_of_range{"You have reached end of vector"};
         }
         switch (d_stack)
         {
         case head:
-            D_STACK_.at(heads) = element;
-            heads++;
-            return 1;
+            m_d_stack_.at(m_head) = element;
+            m_head++;
+            return element;
         case tail:
-            D_STACK_.at(--tails) = element;
-            return 1;
+            m_d_stack_.at(--m_tail) = element;
+            return element;
         default:
             throw std::invalid_argument{"Invalid name of tail or head"};
         }
     }
-    uint32_t pop(stack d_stack)
+    T pop(stack d_stack)
     {
+        T element;
         switch (d_stack)
         {
         case head:
             check(head);
-            return D_STACK_.at(--heads);
+            element = m_d_stack_.at(--m_head);
+            return element;
         case tail:
             check(tail);
-            return D_STACK_.at(tails++);
+            return m_d_stack_.at(m_tail++);
         default:
             throw std::invalid_argument{"Invalid name of tail or head"};
         }
     }
 
 private:
-    std::vector<T> D_STACK_;
-    uint32_t heads;
-    uint32_t tails;
+    std::vector<T> m_d_stack_;
+    uint32_t m_head;
+    uint32_t m_tail;
 };

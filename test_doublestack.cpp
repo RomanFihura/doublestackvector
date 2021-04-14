@@ -43,3 +43,10 @@ TEST(doublestack, pop_)
     }
     EXPECT_EQ(testdstack.size(tail), 7);
 }
+TEST(doublestack, pop_and_push)
+{
+    double_stack<int> testdstack;
+    uint32_t a = testdstack.push(head, 10);
+    uint32_t b = testdstack.pop(head);
+    EXPECT_EQ(a, b);
+}
